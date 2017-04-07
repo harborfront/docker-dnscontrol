@@ -1,0 +1,24 @@
+language: bash
+services: docker
+
+env:
+  - DNSCONTROL=v0.1.0 ALIASES="latest,v0.1"
+
+before_script:
+  - env | sort
+  - curl -fsSL "https://github.com/StackExchange/dnscontrol/releases/download/${DNSCONTROL}/dnscontrol-Linux" -o dnscontrol-Linux
+  - prefix="harborfront/dnscontrol"
+  - image="$prefix:${DNSCONTROL:+-$DNSCONTROL}"
+
+script:
+  - travis_retry docker build --build-arg="TAG=${DNSCONTROL:+$DNSCONTROL}" -t "$image" .
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker push "$image"
+  - docker images
+  - if [ "$ALIASES" != "" ]; then
+      IN=(${ALIASES//,/ });
+      for i in "${IN[@]}"; do
+        docker tag "${image}" "$prefix:$i";
+        docker push "$prefix:$i";
+      done;
+    fi
