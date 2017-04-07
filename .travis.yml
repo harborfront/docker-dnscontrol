@@ -7,6 +7,7 @@ env:
 before_script:
   - env | sort
   - curl -fsSL "https://github.com/StackExchange/dnscontrol/releases/download/${DNSCONTROL}/dnscontrol-Linux" -o dnscontrol-Linux
+  - chmod +x ./dnscontrol-Linux
   - prefix="harborfront/dnscontrol"
   - image="$prefix:${DNSCONTROL:+$DNSCONTROL}"
 
