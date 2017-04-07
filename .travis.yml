@@ -8,7 +8,7 @@ before_script:
   - env | sort
   - curl -fsSL "https://github.com/StackExchange/dnscontrol/releases/download/${DNSCONTROL}/dnscontrol-Linux" -o dnscontrol-Linux
   - prefix="harborfront/dnscontrol"
-  - image="$prefix:${DNSCONTROL:+-$DNSCONTROL}"
+  - image="$prefix:${DNSCONTROL:+$DNSCONTROL}"
 
 script:
   - travis_retry docker build --build-arg="TAG=${DNSCONTROL:+$DNSCONTROL}" -t "$image" .
