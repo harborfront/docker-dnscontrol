@@ -2,7 +2,8 @@ language: bash
 services: docker
 
 env:
-  - DNSCONTROL=v0.1.0 ALIASES="latest,v0.1"
+  - DNSCONTROL=latest ALIASES="latest,v0.1"
+  - DNSCONTROL=v0.1.0 ALIASES="v0.1.0"
 
 before_script:
   - env | sort
