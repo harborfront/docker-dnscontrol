@@ -1,0 +1,24 @@
+{
+  "cloudflare.com": {
+    "apikey": "$PLUGIN_CLOUDFLARE_API_KEY",
+    "apiuser": "$PLUGIN_CLOUDFLARE_API_USER"
+  },
+  "dnsimple": {
+    "token": "$PLUGIN_DNSIMPLE_TOKEN"
+  },
+  "gandi": {
+    "apikey": "$PLUGIN_GANDI_APIKEY"
+  },
+  "name.com": {
+    "apikey": "$PLUGIN_NAME_API_KEY",
+    "apiuser": "$PLUGIN_NAME_API_USER"
+  },
+  "namecheap.com": {
+    "apikey": "$PLUGIN_NAMECHEAP_API_KEY",
+    "apiuser": "$PLUGIN_NAMECHEAP_API_USER"
+  },
+  "r53": {
+    "KeyId": "$PLUGIN_R53_KEYID",
+    "SecretKey": "$PLUGIN_R53_SECRETKEY"
+  }
+}
